@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Jorge Arenas – Economist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    html,body{margin:0;padding:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;line-height:1.5}
+    header{padding:48px 16px;text-align:center}
+    .container{max-width:880px;margin:0 auto;padding:0 16px}
+    h1{font-size:2rem;margin:0 0 8px}
+    nav a{margin:0 8px;text-decoration:none}
+    .card{background:#f6f8fa;border:1px solid #eaecef;border-radius:12px;padding:16px;margin:16px 0}
+    footer{color:#6a737d;text-align:center;padding:32px 16px}
+    img.avatar{width:120px;height:120px;border-radius:999px;object-fit:cover;border:3px solid #eaecef}
+    .grid{display:grid;gap:16px}
+    @media (min-width:800px){.grid{grid-template-columns:1fr 1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <img class="avatar" src="https://avatars.githubusercontent.com/u/1?v=4" alt="Foto" />
+    <h1>Jorge Arenas</h1>
+    <p>PhD Student in Economics @ USC · Research: matching theory, macro-finance</p>
+    <nav>
+      <a href="#about">Sobre mí</a>
+      <a href="#research">Investigación</a>
+      <a href="#cv">CV</a>
+      <a href="#contact">Contacto</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="about" class="card">
+      <h2>Sobre mí</h2>
+      <p>Economista (U. de Chile). Actualmente PhD en USC. Intereses: OLG, equilibrio general,
+      intervención cambiaria, NDFs, carry trade.</p>
+    </section>
+
+    <section id="research" class="card grid">
+      <div>
+        <h2>Investigación</h2>
+        <ul>
+          <li>Three-sided matching (theory)</li>
+          <li>FX interventions & derivatives (empírico/política)</li>
+          <li>Capital stock series (métodos y datos)</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Preprints / Slides</h3>
+        <ul>
+          <li><a href="#">Paper A (PDF)</a></li>
+          <li><a href="#">Slides LACEA-LAMES</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="cv" class="card">
+      <h2>CV</h2>
+      <p><a href="cv.pdf">Descargar CV (PDF)</a> · <a href="https://scholar.google.com/">Google Scholar</a></p>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contacto</h2>
+      <p>jarenasmo@fen.uchile.cl · Los Ángeles, CA</p>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="y"></span> Jorge Arenas · Hecho con GitHub Pages
+  </footer>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
