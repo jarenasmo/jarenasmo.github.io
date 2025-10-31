@@ -34,11 +34,11 @@
     a:focus{outline:2px solid var(--link); outline-offset:2px; border-radius:6px}
     .container{max-width:var(--maxw); margin:0 auto; padding:0 16px}
 
-    /* Header (non-sticky) */
+    /* Header (more compact, non-sticky) */
     header.site{border-bottom:1px solid var(--line); background:var(--bg);}
-    .hero{padding:40px 16px 24px; text-align:center}
-    h1{font-size:clamp(28px, 3.6vw, 40px); margin:12px 0 8px}
-    nav a{margin:0 8px; padding:6px 10px; border-radius:10px; display:inline-block}
+    .hero{padding:26px 16px 14px; text-align:center} /* reduced vertical padding */
+    h1{font-size:clamp(28px, 3.4vw, 38px); margin:10px 0 6px}
+    nav a{margin:0 6px; padding:6px 10px; border-radius:10px; display:inline-block}
     nav a:hover{background:var(--card); text-decoration:none}
     nav a:focus{background:var(--card)}
 
@@ -51,10 +51,12 @@
     .grid{display:grid; gap:16px}
     @media (min-width:800px){ .grid{grid-template-columns:1fr 1fr} }
 
-    /* Avatar enlarged 40% */
+    /* Avatar: square with soft corners, focused on face */
     img.avatar{
-      width:168px; height:168px;
-      border-radius:999px; object-fit:cover;
+      width:168px; height:168px;               /* 40% larger than original 120px */
+      border-radius:14px;                       /* soft corners, not a circle */
+      object-fit:cover;                         /* fill the square */
+      object-position:50% 22%;                  /* bias crop toward the face (top) */
       border:3px solid var(--line);
     }
 
@@ -84,9 +86,12 @@
   <main class="container">
     <section id="about" class="card">
       <h2>About</h2>
-      <p>I am a Ph.D. student in Economics at the University of Southern California (USC).  
-      Previously, I served as Economic Advisor to the Board at the Central Bank of Chile,  
-      and as Lecturer and Researcher at the Department of Economics, University of Chile.</p>
+      <p>I am a Ph.D. student in Economics at the
+        <a href="https://dornsife.usc.edu/econ/" target="_blank" rel="noopener">University of Southern California</a>.
+        Previously, I served as Economic Advisor to the Board at the
+        <a href="https://www.bcentral.cl/en/" target="_blank" rel="noopener">Central Bank of Chile</a>, and as Lecturer and Researcher at the
+        <a href="https://econ.uchile.cl/" target="_blank" rel="noopener">University of Chile</a>.
+      </p>
     </section>
 
     <section id="research" class="card grid">
