@@ -4,9 +4,8 @@
   <meta charset="utf-8" />
   <title>Jorge Arenas Molina – Economist</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Ph.D. Student in Economics at University of Southern California (USC). Research: matching theory, macro-finance." />
+  <meta name="description" content="Personal webpage of Jorge Arenas Molina, Economist and Ph.D. Student at USC." />
   <style>
-    /* ===== Theme tokens ===== */
     :root{
       --bg:#ffffff; --fg:#111418; --muted:#5f6b7a;
       --card:#f6f8fa; --line:#e6e8eb;
@@ -21,7 +20,6 @@
       }
     }
 
-    /* ===== Base ===== */
     *,*::before,*::after{box-sizing:border-box}
     html,body{margin:0;padding:0}
     html{scroll-behavior:smooth}
@@ -36,20 +34,15 @@
     a:focus{outline:2px solid var(--link); outline-offset:2px; border-radius:6px}
     .container{max-width:var(--maxw); margin:0 auto; padding:0 16px}
 
-    /* ===== Header (NON-sticky) ===== */
-    header.site{
-      /* Not sticky: simply a regular block */
-      border-bottom:1px solid var(--line);
-      background:var(--bg);
-    }
+    /* Header (non-sticky) */
+    header.site{border-bottom:1px solid var(--line); background:var(--bg);}
     .hero{padding:40px 16px 24px; text-align:center}
     h1{font-size:clamp(28px, 3.6vw, 40px); margin:12px 0 8px}
-    .subtitle{margin:0; color:var(--muted)}
     nav a{margin:0 8px; padding:6px 10px; border-radius:10px; display:inline-block}
     nav a:hover{background:var(--card); text-decoration:none}
     nav a:focus{background:var(--card)}
 
-    /* ===== Sections / Cards ===== */
+    /* Sections / Cards */
     main{padding:16px 0 40px}
     .card{
       background:var(--card); border:1px solid var(--line);
@@ -58,18 +51,17 @@
     .grid{display:grid; gap:16px}
     @media (min-width:800px){ .grid{grid-template-columns:1fr 1fr} }
 
-    /* Avatar */
+    /* Avatar enlarged 40% */
     img.avatar{
-      width:120px;height:120px;border-radius:999px;object-fit:cover;
-      border:3px solid var(--line)
+      width:168px; height:168px;
+      border-radius:999px; object-fit:cover;
+      border:3px solid var(--line);
     }
 
-    /* Footer */
     footer{
       color:var(--muted); text-align:center; padding:28px 16px;
       border-top:1px solid var(--line)
     }
-
     .sr-only{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
   </style>
 </head>
@@ -78,10 +70,8 @@
 
   <header class="site">
     <div class="hero container">
-      <!-- Use your uploaded image path below -->
       <img class="avatar" src="assets/profile.jpg" alt="Portrait of Jorge Arenas Molina" />
       <h1>Jorge Arenas Molina</h1>
-      <p class="subtitle">Ph.D. Student in Economics at University of Southern California (USC)</p>
       <nav aria-label="Primary">
         <a href="#about">About</a>
         <a href="#research">Research</a>
@@ -94,8 +84,9 @@
   <main class="container">
     <section id="about" class="card">
       <h2>About</h2>
-      <p>Economist (University of Chile). Currently a Ph.D. student at USC. Interests: OLG, general equilibrium,
-      FX intervention, NDFs, carry trade.</p>
+      <p>I am a Ph.D. student in Economics at the University of Southern California (USC).  
+      Previously, I served as Economic Advisor to the Board at the Central Bank of Chile,  
+      and as Lecturer and Researcher at the Department of Economics, University of Chile.</p>
     </section>
 
     <section id="research" class="card grid">
@@ -118,7 +109,8 @@
 
     <section id="cv" class="card">
       <h2>CV</h2>
-      <p><a href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a> · <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a></p>
+      <p><a href="cv.pdf" target="_blank" rel="noopener">Download CV (PDF)</a> · 
+      <a href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a></p>
     </section>
 
     <section id="contact" class="card">
@@ -136,4 +128,5 @@
   </script>
 </body>
 </html>
+
 
