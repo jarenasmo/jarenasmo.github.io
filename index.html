@@ -97,24 +97,6 @@
             border-radius: 0;
         }
 
-        .photo-placeholder {
-            width: 145px;
-            height: 175px;
-
-            margin-bottom: 25px;
-
-            border: 1px solid #d6d6d6;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            color: #999999;
-
-            font-size: 12px;
-            letter-spacing: 0.12em;
-        }
-
 
         /* =========================================================
            NAME
@@ -237,9 +219,6 @@
 
             min-height: 100vh;
 
-            /*
-              Reduced right padding so the page feels wider.
-            */
             padding:
                 75px
                 55px
@@ -249,10 +228,6 @@
 
         .content {
             width: 100%;
-
-            /*
-              Wider than the previous version.
-            */
             max-width: 1080px;
         }
 
@@ -340,7 +315,7 @@
         }
 
         .paper-title {
-            margin-bottom: 4px;
+            margin-bottom: 3px;
 
             font-size: 19px;
             font-weight: 600;
@@ -355,81 +330,92 @@
         }
 
         .authors {
-            margin-bottom: 2px !important;
+            margin-bottom: 4px !important;
 
             color: #333333;
         }
 
         .paper-status {
-            margin-bottom: 6px !important;
+            margin-bottom: 5px !important;
 
             color: #666666;
             font-style: italic;
         }
 
+        .journal-info {
+            margin-bottom: 5px !important;
+
+            color: #555555;
+            font-style: italic;
+        }
+
 
         /* =========================================================
-           PAPER LINKS
+           PAPER ACTIONS
+           PDF / ABSTRACT / JOURNAL ON SAME LINE
         ========================================================= */
 
-        .paper-links {
-            margin-top: 7px !important;
-            margin-bottom: 12px !important;
+        .paper-actions {
+            display: flex;
+            flex-wrap: wrap;
+
+            align-items: center;
+
+            gap: 0 14px;
+
+            margin-top: 7px;
+            margin-bottom: 10px;
 
             font-size: 14px;
         }
 
-        .paper-links a {
-            margin-right: 14px;
+        .paper-actions a,
+        .text-button {
+            padding: 0;
 
+            color: #161616;
+
+            background: none;
+            border: none;
             border-bottom: 1px solid #bdbdbd;
-        }
 
-        .paper-links a:hover {
-            border-bottom-color: #111111;
-        }
-
-
-        /* =========================================================
-           ABSTRACT TOGGLE
-        ========================================================= */
-
-        .abstract-toggle {
-            margin-top: 7px;
-        }
-
-        .abstract-toggle summary {
-            display: inline-block;
+            font-family: inherit;
+            font-size: 14px;
+            line-height: 1.45;
 
             cursor: pointer;
-
-            font-size: 14px;
-
-            border-bottom: 1px solid #bdbdbd;
-
-            list-style: none;
         }
 
-        .abstract-toggle summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .abstract-toggle summary:hover {
+        .paper-actions a:hover,
+        .text-button:hover {
             color: #666666;
             border-bottom-color: #111111;
         }
 
+
+        /* =========================================================
+           ABSTRACTS
+        ========================================================= */
+
         .abstract-text {
+            display: none;
+
+            width: 100%;
             max-width: 1000px;
 
-            margin-top: 15px !important;
+            margin-top: 14px !important;
+            margin-bottom: 0 !important;
 
             color: #333333;
         }
 
+        .abstract-text.open {
+            display: block;
+        }
+
 
         /* =========================================================
-           ALTERNATIVE VERSION
+           OTHER VERSION
         ========================================================= */
 
         .alternate-version {
@@ -453,33 +439,6 @@
         .alternate-version .paper-title {
             font-size: 17px;
             font-weight: 500;
-        }
-
-        .alternate-version .authors {
-            font-size: 16px;
-        }
-
-
-        /* =========================================================
-           JOURNAL INFORMATION
-        ========================================================= */
-
-        .journal-info {
-            margin-bottom: 6px !important;
-
-            color: #555555;
-
-            font-style: italic;
-        }
-
-
-        /* =========================================================
-           EMPTY SECTION
-        ========================================================= */
-
-        .empty-section {
-            color: #777777;
-            font-style: italic;
         }
 
 
@@ -542,7 +501,6 @@
                 border-bottom: 1px solid #d8d8d8;
             }
 
-            .photo-placeholder,
             .profile-photo {
                 width: 105px;
                 height: 125px;
@@ -618,19 +576,11 @@
 
     <aside class="sidebar">
 
-        <!--
-        Replace later with:
-
         <img
-            src="assets/photo.jpg"
+            src="assets/profile.jpg"
             alt="Jorge Arenas"
             class="profile-photo"
         >
-        -->
-
-        <div class="photo-placeholder">
-            PHOTO
-        </div>
 
 
         <h1 class="name">
@@ -784,10 +734,6 @@
                             The Expected Size of a Stable Matching in Random Two-Sided Markets
                         </div>
 
-                        <p class="authors">
-                            Jorge Arenas
-                        </p>
-
                         <p class="paper-status">
                             Draft coming soon
                         </p>
@@ -804,11 +750,7 @@
                             Local Non-Bossiness and Improvements over Deferred Acceptance
                         </div>
 
-                        <p class="authors">
-                            Jorge Arenas
-                        </p>
-
-                        <p class="paper-links">
+                        <div class="paper-actions">
 
                             <a
                                 href="papers/local-non-bossiness.pdf"
@@ -817,40 +759,42 @@
                                 PDF
                             </a>
 
-                        </p>
-
-                        <details class="abstract-toggle">
-
-                            <summary>
+                            <button
+                                type="button"
+                                class="text-button"
+                                onclick="toggleAbstract('abstract-local', this)"
+                            >
                                 Abstract
-                            </summary>
+                            </button>
 
-                            <p class="abstract-text">
-                                In school choice, the student-proposing
-                                deferred acceptance mechanism (DA) is
-                                stable and strategy-proof, but it may be
-                                Pareto inefficient for students.
-                                Duque-Rosas, Pereyra, and Torres-Martínez
-                                (2026) show that DA is locally non-bossy:
-                                a student who changes her report and keeps
-                                her school cannot change who else is
-                                assigned to that school. We ask whether
-                                mechanisms that Pareto improve upon DA
-                                inherit this protection. Any improvement
-                                over DA preserves the size of every school
-                                and the set of unassigned students; hence,
-                                when schools have a single seat, every
-                                mechanism that improves upon DA is locally
-                                non-bossy. With multi-seat schools the
-                                conclusion fails: we exhibit an environment
-                                in which no Pareto-efficient mechanism that
-                                improves upon DA is locally non-bossy.
-                                Efficiency adjustments can therefore give
-                                a student leverage over her classmates even
-                                when they give her none over her school.
-                            </p>
+                        </div>
 
-                        </details>
+                        <p
+                            id="abstract-local"
+                            class="abstract-text"
+                        >
+                            In school choice, the student-proposing
+                            deferred acceptance mechanism (DA) is stable
+                            and strategy-proof, but it may be Pareto
+                            inefficient for students. Duque-Rosas,
+                            Pereyra, and Torres-Martínez (2026) show that
+                            DA is locally non-bossy: a student who changes
+                            her report and keeps her school cannot change
+                            who else is assigned to that school. We ask
+                            whether mechanisms that Pareto improve upon DA
+                            inherit this protection. Any improvement over
+                            DA preserves the size of every school and the
+                            set of unassigned students; hence, when
+                            schools have a single seat, every mechanism
+                            that improves upon DA is locally non-bossy.
+                            With multi-seat schools the conclusion fails:
+                            we exhibit an environment in which no
+                            Pareto-efficient mechanism that improves upon
+                            DA is locally non-bossy. Efficiency
+                            adjustments can therefore give a student
+                            leverage over her classmates even when they
+                            give her none over her school.
+                        </p>
 
                     </article>
 
@@ -868,11 +812,11 @@
                         </div>
 
                         <p class="authors">
-                            Stephany Griffith-Jones, Catalina Estefó,
-                            Max Gondonneau, and Jorge Arenas
+                            with Stephany Griffith-Jones, Catalina Estefó,
+                            and Max Gondonneau
                         </p>
 
-                        <p class="paper-links">
+                        <div class="paper-actions">
 
                             <a
                                 href="papers/ndf-exchange-rate-volatility.pdf"
@@ -881,36 +825,38 @@
                                 PDF
                             </a>
 
-                        </p>
-
-                        <details class="abstract-toggle">
-
-                            <summary>
+                            <button
+                                type="button"
+                                class="text-button"
+                                onclick="toggleAbstract('abstract-ndf', this)"
+                            >
                                 Abstract
-                            </summary>
+                            </button>
 
-                            <p class="abstract-text">
-                                This paper quantifies the impact of
-                                non-resident Non-Deliverable Forward (NDF)
-                                flows on the Chilean peso using daily
-                                administrative data. Exploiting the
-                                structural break caused by the 2020–2021
-                                pension fund withdrawals, we document a
-                                critical regime shift. We find that the
-                                retrenchment of local institutional
-                                investors eroded market depth, leading to
-                                a heightened, nonlinear sensitivity to
-                                short-term speculative flows.
-                                Post-withdrawal, these offshore positions
-                                significantly amplify depreciation and
-                                volatility. Our findings underscore the
-                                financial stability risks arising when
-                                domestic liquidity buffers are compromised,
-                                presenting key challenges for monetary
-                                policy and regulatory design.
-                            </p>
+                        </div>
 
-                        </details>
+                        <p
+                            id="abstract-ndf"
+                            class="abstract-text"
+                        >
+                            This paper quantifies the impact of
+                            non-resident Non-Deliverable Forward (NDF)
+                            flows on the Chilean peso using daily
+                            administrative data. Exploiting the structural
+                            break caused by the 2020–2021 pension fund
+                            withdrawals, we document a critical regime
+                            shift. We find that the retrenchment of local
+                            institutional investors eroded market depth,
+                            leading to a heightened, nonlinear sensitivity
+                            to short-term speculative flows.
+                            Post-withdrawal, these offshore positions
+                            significantly amplify depreciation and
+                            volatility. Our findings underscore the
+                            financial stability risks arising when
+                            domestic liquidity buffers are compromised,
+                            presenting key challenges for monetary policy
+                            and regulatory design.
+                        </p>
 
                     </article>
 
@@ -925,10 +871,10 @@
                         </div>
 
                         <p class="authors">
-                            Jorge Arenas and Juan Pablo Torres-Martínez
+                            with Juan Pablo Torres-Martínez
                         </p>
 
-                        <p class="paper-links">
+                        <div class="paper-actions">
 
                             <a
                                 href="papers/incentives-three-sided-markets.pdf"
@@ -937,56 +883,49 @@
                                 PDF
                             </a>
 
+                            <button
+                                type="button"
+                                class="text-button"
+                                onclick="toggleAbstract('abstract-three-sided', this)"
+                            >
+                                Abstract
+                            </button>
+
+                        </div>
+
+                        <p
+                            id="abstract-three-sided"
+                            class="abstract-text"
+                        >
+                            In a class of three-sided matching problems
+                            in which the core is non-empty, we show that
+                            no stable mechanism is strategy-proof for
+                            those who internalize the trilateral structure
+                            of the market in their preferences. This
+                            impossibility is related to the incompatibility
+                            between stability, one-sided strategy-proofness,
+                            and one-sided non-bossiness in two-sided
+                            markets. Furthermore, unlike what happens in
+                            marriage markets, strong restrictions on
+                            preferences are needed to ensure that stability
+                            and one-sided strategy-proofness are compatible
+                            for each market side.
                         </p>
 
-                        <details class="abstract-toggle">
 
-                            <summary>
-                                Abstract
-                            </summary>
-
-                            <p class="abstract-text">
-                                In a class of three-sided matching problems
-                                in which the core is non-empty, we show that
-                                no stable mechanism is strategy-proof for
-                                those who internalize the trilateral
-                                structure of the market in their preferences.
-                                This impossibility is related to the
-                                incompatibility between stability, one-sided
-                                strategy-proofness, and one-sided
-                                non-bossiness in two-sided markets.
-                                Furthermore, unlike what happens in marriage
-                                markets, strong restrictions on preferences
-                                are needed to ensure that stability and
-                                one-sided strategy-proofness are compatible
-                                for each market side.
-                            </p>
-
-                        </details>
-
-
-                        <!-- EARLIER VERSION -->
+                        <!-- OTHER VERSION -->
 
                         <div class="alternate-version">
 
                             <div class="version-label">
-                                Earlier version
+                                Other version
                             </div>
 
                             <div class="paper-title">
                                 On Incentives in Three-Sided Markets
                             </div>
 
-                            <p class="authors">
-                                Jorge Arenas and Juan Pablo Torres-Martínez
-                            </p>
-
-                            <p class="paper-status">
-                                University of Chile Working Paper No. 558,
-                                April 2024
-                            </p>
-
-                            <p class="paper-links">
+                            <div class="paper-actions">
 
                                 <a
                                     href="papers/on-incentives-three-sided-markets.pdf"
@@ -995,32 +934,33 @@
                                     PDF
                                 </a>
 
-                            </p>
-
-                            <details class="abstract-toggle">
-
-                                <summary>
+                                <button
+                                    type="button"
+                                    class="text-button"
+                                    onclick="toggleAbstract('abstract-three-sided-old', this)"
+                                >
                                     Abstract
-                                </summary>
+                                </button>
 
-                                <p class="abstract-text">
-                                    In a class of three-sided matching
-                                    problems that always have stable
-                                    solutions, we show that no stable
-                                    mechanism is strategy-proof for those
-                                    who internalize the trilateral structure
-                                    in their preferences. Furthermore,
-                                    strong restrictions on preferences are
-                                    needed to ensure that stability and
-                                    one-sided strategy-proofness are
-                                    compatible for all sides of the market.
-                                    These results are related to the
-                                    incompatibility between stability and
-                                    one-sided group strategy-proofness in
-                                    two-sided markets.
-                                </p>
+                            </div>
 
-                            </details>
+                            <p
+                                id="abstract-three-sided-old"
+                                class="abstract-text"
+                            >
+                                In a class of three-sided matching problems
+                                that always have stable solutions, we show
+                                that no stable mechanism is strategy-proof
+                                for those who internalize the trilateral
+                                structure in their preferences. Furthermore,
+                                strong restrictions on preferences are
+                                needed to ensure that stability and
+                                one-sided strategy-proofness are compatible
+                                for all sides of the market. These results
+                                are related to the incompatibility between
+                                stability and one-sided group
+                                strategy-proofness in two-sided markets.
+                            </p>
 
                         </div>
 
@@ -1049,7 +989,7 @@
                         </div>
 
                         <p class="authors">
-                            Jorge Arenas and Juan Pablo Torres-Martínez
+                            with Juan Pablo Torres-Martínez
                         </p>
 
                         <p class="journal-info">
@@ -1057,7 +997,7 @@
                             45, Article 62, 2023
                         </p>
 
-                        <p class="paper-links">
+                        <div class="paper-actions">
 
                             <a
                                 href="https://link.springer.com/article/10.1007/s10878-023-00990-2"
@@ -1067,28 +1007,30 @@
                                 Journal
                             </a>
 
-                        </p>
-
-                        <details class="abstract-toggle">
-
-                            <summary>
+                            <button
+                                type="button"
+                                class="text-button"
+                                onclick="toggleAbstract('abstract-published', this)"
+                            >
                                 Abstract
-                            </summary>
+                            </button>
 
-                            <p class="abstract-text">
-                                We reexamine the existence of stable
-                                solutions in a class of three-sided
-                                matching problems previously studied by
-                                Zhang and Zhong. The sets of participants
-                                are U, V, and W. Agents in U have strict
-                                preferences defined on V, agents in V have
-                                strict preferences defined on W, and agents
-                                in W have strict preferences defined on
-                                U × V. In this framework, we show that a
-                                weakly stable matching may not exist.
-                            </p>
+                        </div>
 
-                        </details>
+                        <p
+                            id="abstract-published"
+                            class="abstract-text"
+                        >
+                            We reexamine the existence of stable solutions
+                            in a class of three-sided matching problems
+                            previously studied by Zhang and Zhong. The sets
+                            of participants are U, V, and W. Agents in U
+                            have strict preferences defined on V, agents in
+                            V have strict preferences defined on W, and
+                            agents in W have strict preferences defined on
+                            U × V. In this framework, we show that a weakly
+                            stable matching may not exist.
+                        </p>
 
                     </article>
 
@@ -1106,9 +1048,92 @@
                         Policy Work
                     </h3>
 
-                    <p class="empty-section">
-                        Work to be added.
-                    </p>
+
+                    <!-- POLICY 1 -->
+
+                    <article class="paper">
+
+                        <div class="paper-title">
+                            Firm and Household Heterogeneity at the Central Bank of Chile
+                        </div>
+
+                        <p class="authors">
+                            with Mario Giarda and Stephany Griffith-Jones
+                        </p>
+
+                        <p class="journal-info">
+                            In <em>How Can Central Banks Take Account of
+                            Differences across Households and Firms for
+                            Monetary Policy?</em>, BIS Papers No. 147,
+                            June 2025
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- POLICY 2 -->
+
+                    <article class="paper">
+
+                        <div class="paper-title">
+                            Green Hydrogen in Chile: Outlook on Demand and Investment
+                            <span class="paper-note">
+                                (in Spanish)
+                            </span>
+                        </div>
+
+                        <p class="authors">
+                            with S. Baudocco, G. Contreras, J. Guerra,
+                            and S. Griffith-Jones
+                        </p>
+
+                        <p class="journal-info">
+                            Central Bank of Chile Blogs, September 2024
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- POLICY 3 -->
+
+                    <article class="paper">
+
+                        <div class="paper-title">
+                            Exchange Rate Pass-Through to Prices in Chile:
+                            An Empirical and Structural Analysis
+                        </div>
+
+                        <p class="authors">
+                            with P. Concha, M. García, E. Luttini,
+                            and J. E. Rishmawi
+                        </p>
+
+                        <p class="journal-info">
+                            Monetary Policy Report, Central Bank of Chile,
+                            March 2023
+                        </p>
+
+                    </article>
+
+
+
+                    <!-- POLICY 4 -->
+
+                    <article class="paper">
+
+                        <div class="paper-title">
+                            Effectiveness of Foreign Exchange Interventions:
+                            Evidence and Lessons from Chile
+                        </div>
+
+                        <p class="authors">
+                            with Stephany Griffith-Jones
+                        </p>
+
+                    </article>
+
 
                 </div>
 
@@ -1193,10 +1218,34 @@
 
 
     <!-- =========================================================
-         ACTIVE NAVIGATION
+         JAVASCRIPT
     ========================================================== -->
 
     <script>
+
+        /* ---------------------------------------------------------
+           ABSTRACT BUTTONS
+        --------------------------------------------------------- */
+
+        function toggleAbstract(id, button) {
+
+            const abstract =
+                document.getElementById(id);
+
+            abstract.classList.toggle("open");
+
+            if (abstract.classList.contains("open")) {
+                button.textContent = "Hide abstract";
+            } else {
+                button.textContent = "Abstract";
+            }
+
+        }
+
+
+        /* ---------------------------------------------------------
+           ACTIVE SIDEBAR SECTION
+        --------------------------------------------------------- */
 
         const sections =
             document.querySelectorAll(".section");
@@ -1250,6 +1299,10 @@
 
     </script>
 
+
+</body>
+
+</html>
 
 </body>
 
