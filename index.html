@@ -131,11 +131,38 @@
 
 
         /* =========================================================
+           CONTACT LINKS
+        ========================================================= */
+
+        .contact-links {
+            margin-top: 14px;
+
+            font-size: 13px;
+            line-height: 1.55;
+        }
+
+        .contact-links a {
+            display: block;
+
+            width: fit-content;
+
+            color: #555555;
+
+            border-bottom: 1px solid transparent;
+        }
+
+        .contact-links a:hover {
+            color: #111111;
+            border-bottom-color: #bdbdbd;
+        }
+
+
+        /* =========================================================
            NAVIGATION
         ========================================================= */
 
         .navigation {
-            margin-top: 42px;
+            margin-top: 38px;
         }
 
         .navigation ul {
@@ -185,32 +212,6 @@
 
 
         /* =========================================================
-           SIDEBAR LINKS
-        ========================================================= */
-
-        .sidebar-bottom {
-            margin-top: auto;
-
-            font-size: 13px;
-            color: #666666;
-        }
-
-        .sidebar-bottom a {
-            display: block;
-
-            width: fit-content;
-
-            margin-top: 6px;
-
-            color: #666666;
-        }
-
-        .sidebar-bottom a:hover {
-            color: #111111;
-        }
-
-
-        /* =========================================================
            MAIN PAGE
         ========================================================= */
 
@@ -247,7 +248,7 @@
         ========================================================= */
 
         .section {
-            margin-bottom: 105px;
+            margin-bottom: 82px;
 
             scroll-margin-top: 70px;
         }
@@ -258,7 +259,7 @@
 
         .section-title {
             margin-top: 0;
-            margin-bottom: 28px;
+            margin-bottom: 26px;
 
             font-size: 30px;
             font-weight: 500;
@@ -295,7 +296,7 @@
         ========================================================= */
 
         .research-subsection {
-            margin-bottom: 65px;
+            margin-bottom: 50px;
         }
 
         .research-subsection:last-child {
@@ -304,14 +305,14 @@
 
         .subsection-title {
             margin-top: 0;
-            margin-bottom: 30px;
+            margin-bottom: 26px;
 
             font-size: 22px;
             font-weight: 600;
         }
 
         .paper {
-            margin-bottom: 48px;
+            margin-bottom: 36px;
         }
 
         .paper-title {
@@ -394,6 +395,23 @@
 
 
         /* =========================================================
+           INLINE LINKS
+        ========================================================= */
+
+        .inline-link {
+            color: #161616;
+            font-style: normal;
+
+            border-bottom: 1px solid #bdbdbd;
+        }
+
+        .inline-link:hover {
+            color: #666666;
+            border-bottom-color: #111111;
+        }
+
+
+        /* =========================================================
            ABSTRACTS
         ========================================================= */
 
@@ -439,28 +457,6 @@
         .alternate-version .paper-title {
             font-size: 17px;
             font-weight: 500;
-        }
-
-
-        /* =========================================================
-           TEACHING
-        ========================================================= */
-
-        .teaching-item {
-            margin-bottom: 28px;
-        }
-
-        .teaching-course {
-            margin-bottom: 2px;
-
-            font-size: 18px;
-            font-weight: 600;
-        }
-
-        .teaching-info {
-            margin: 0 !important;
-
-            color: #555555;
         }
 
 
@@ -531,10 +527,6 @@
                 font-size: 13px;
             }
 
-            .sidebar-bottom {
-                display: none;
-            }
-
             .main {
                 margin-left: 0;
 
@@ -546,7 +538,7 @@
             }
 
             .section {
-                margin-bottom: 80px;
+                margin-bottom: 65px;
             }
 
             .section-title {
@@ -596,6 +588,23 @@
         </p>
 
 
+        <div class="contact-links">
+
+            <a href="mailto:jiarenas@usc.edu">
+                jiarenas@usc.edu
+            </a>
+
+            <a
+                href="https://scholar.google.com/citations?user=c5r6jVEAAAAJ&hl=en&oi=ao"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Google Scholar
+            </a>
+
+        </div>
+
+
         <nav class="navigation">
 
             <ul>
@@ -613,12 +622,6 @@
                 </li>
 
                 <li>
-                    <a href="#teaching" class="nav-link">
-                        Teaching
-                    </a>
-                </li>
-
-                <li>
                     <a href="#cv" class="nav-link">
                         CV
                     </a>
@@ -627,23 +630,6 @@
             </ul>
 
         </nav>
-
-
-        <div class="sidebar-bottom">
-
-            <a href="mailto:jiarenas@usc.edu">
-                jiarenas@usc.edu
-            </a>
-
-            <a
-                href="https://scholar.google.com/citations?user=c5r6jVEAAAAJ&hl=en&oi=ao"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Google Scholar
-            </a>
-
-        </div>
 
     </aside>
 
@@ -753,8 +739,9 @@
                         <div class="paper-actions">
 
                             <a
-                                href="papers/local-non-bossiness.pdf"
+                                href="assets/papers/JAM_LNB_DA_1026.pdf"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 PDF
                             </a>
@@ -819,8 +806,9 @@
                         <div class="paper-actions">
 
                             <a
-                                href="papers/ndf-exchange-rate-volatility.pdf"
+                                href="assets/papers/NDF_bcch_0326.pdf"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 PDF
                             </a>
@@ -877,8 +865,9 @@
                         <div class="paper-actions">
 
                             <a
-                                href="papers/incentives-three-sided-markets.pdf"
+                                href="assets/papers/ATM_inc_0523.pdf"
                                 target="_blank"
+                                rel="noopener noreferrer"
                             >
                                 PDF
                             </a>
@@ -928,8 +917,9 @@
                             <div class="paper-actions">
 
                                 <a
-                                    href="papers/on-incentives-three-sided-markets.pdf"
+                                    href="assets/papers/ATM_oninc_0424.pdf"
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                 >
                                     PDF
                                 </a>
@@ -1015,6 +1005,14 @@
                                 Abstract
                             </button>
 
+                            <a
+                                href="assets/papers/ATM_jcomb_23.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                PDF
+                            </a>
+
                         </div>
 
                         <p
@@ -1023,13 +1021,13 @@
                         >
                             We reexamine the existence of stable solutions
                             in a class of three-sided matching problems
-                            previously studied by Zhang and Zhong. The sets
-                            of participants are U, V, and W. Agents in U
-                            have strict preferences defined on V, agents in
-                            V have strict preferences defined on W, and
-                            agents in W have strict preferences defined on
-                            U × V. In this framework, we show that a weakly
-                            stable matching may not exist.
+                            previously studied by Zhang and Zhong (2021).
+                            The sets of participants are U, V, and W.
+                            Agents in U have strict preferences defined on
+                            V, agents in V have strict preferences defined
+                            on W, and agents in W have strict preferences
+                            defined on U × V. In this framework, we show
+                            that a weakly stable matching may not exist.
                         </p>
 
                     </article>
@@ -1068,6 +1066,18 @@
                             June 2025
                         </p>
 
+                        <div class="paper-actions">
+
+                            <a
+                                href="assets/papers/AGG_BIS_0325.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                PDF
+                            </a>
+
+                        </div>
+
                     </article>
 
 
@@ -1090,6 +1100,12 @@
 
                         <p class="journal-info">
                             Central Bank of Chile Blogs, September 2024
+                            (<a
+                                href="https://www.bcentral.cl/en/w/hidrogeno-verde-chile"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-link"
+                            >Link</a>)
                         </p>
 
                     </article>
@@ -1113,6 +1129,12 @@
                         <p class="journal-info">
                             Monetary Policy Report, Central Bank of Chile,
                             March 2023
+                            (<a
+                                href="https://www.bcentral.cl/documents/33528/4103593/Box_I.4.pdf/d1f3ab53-ab87-162f-b566-d97fd3290802?t=1681723342790"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="inline-link"
+                            >Link</a>)
                         </p>
 
                     </article>
@@ -1132,51 +1154,25 @@
                             with Stephany Griffith-Jones
                         </p>
 
+                        <p class="journal-info">
+                            Central Bank of Chile Working Papers N983,
+                            October 2024
+                        </p>
+
+                        <div class="paper-actions">
+
+                            <a
+                                href="assets/papers/JAMSGJ_FXI_1024.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                PDF
+                            </a>
+
+                        </div>
+
                     </article>
 
-
-                </div>
-
-            </section>
-
-
-
-            <!-- =================================================
-                 TEACHING
-            ================================================== -->
-
-            <section
-                id="teaching"
-                class="section"
-            >
-
-                <h2 class="section-title">
-                    Teaching
-                </h2>
-
-
-                <div class="teaching-item">
-
-                    <div class="teaching-course">
-                        Course Title
-                    </div>
-
-                    <p class="teaching-info">
-                        University — Position — Year
-                    </p>
-
-                </div>
-
-
-                <div class="teaching-item">
-
-                    <div class="teaching-course">
-                        Another Course
-                    </div>
-
-                    <p class="teaching-info">
-                        University — Position — Year
-                    </p>
 
                 </div>
 
@@ -1299,10 +1295,6 @@
 
     </script>
 
-
-</body>
-
-</html>
 
 </body>
 
