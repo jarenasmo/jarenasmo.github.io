@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><title>Jorge Arenas Molina | Economics PhD Student at USC</title><meta content="Jorge Arenas Molina is a PhD student in Economics at the University of Southern California. Research, working papers, publications, and policy work." name="description"/><style>
+:root { --ink:#161616; --muted:#555; --navy:#1b3454; --page-width:940px; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; color:var(--ink); background:#fff; font:300 16px/1.65 'Helvetica Neue', 'Segoe UI', Arial, sans-serif; }
+button, a { -webkit-tap-highlight-color:transparent; }
+a {color:inherit;text-decoration:none;} a:hover {color:#666;}
+/* An edge-to-edge, non-scrolling tiling of 12 artworks. */
+.mosaic {position:fixed;inset:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));grid-template-rows:repeat(5,minmax(0,1fr));gap:0;overflow:hidden;}
+.tile {min-width:0;min-height:0;overflow:hidden;position:relative;border:0;margin:0;padding:0;}
+.tile img {width:100%;height:100%;object-fit:cover;display:block;}
+.mosaic-pale {z-index:0;opacity:.12;pointer-events:none;}
+.mosaic-soften {z-index:1;pointer-events:none;background:linear-gradient(90deg, rgba(255,255,255,0) 0%,rgba(255,255,255,.08) 12%,rgba(255,255,255,.55) 23%,#fff 36%,#fff 64%,rgba(255,255,255,.55) 77%,rgba(255,255,255,.08) 88%,rgba(255,255,255,0) 100%);}
+/* Above the whitening veil, so the spotlight actually restores original color. */
+.mosaic-color {z-index:2;pointer-events:none;opacity:0;transition:opacity .2s ease;
+ -webkit-mask-image:radial-gradient(circle 230px at var(--spot-x,-600px) var(--spot-y,-600px),#000 0%,#000 54%,rgba(0,0,0,.85) 68%,rgba(0,0,0,.45) 83%,transparent 100%);
+ mask-image:radial-gradient(circle 230px at var(--spot-x,-600px) var(--spot-y,-600px),#000 0%,#000 54%,rgba(0,0,0,.85) 68%,rgba(0,0,0,.45) 83%,transparent 100%);}
+.mosaic-color.active {opacity:1;}
+.shell {max-width:var(--page-width);min-height:100vh;margin:0 auto;background:#fff;position:relative;z-index:4;box-shadow:0 0 90px 68px rgba(255,255,255,.88);transition:opacity .22s ease,filter .22s ease,transform .22s ease;}
+.inner {padding:42px 78px 96px;}
+.topnav {display:flex;justify-content:flex-end;gap:29px;padding-bottom:46px;font-size:14px;}
+.topnav a {border-bottom:1px solid transparent;}.topnav a:hover,.topnav a.active {border-color:#777;}
+.hero {display:grid;grid-template-columns:205px minmax(0,1fr);gap:36px;align-items:start;margin-bottom:66px;}
+.profile-photo {width:205px;height:250px;display:block;object-fit:cover;background:#eee;}
+h1 {color:var(--navy);font-size:32px;font-weight:500;letter-spacing:.012em;line-height:1.25;margin:1px 0 14px;}
+.hero-bio {margin:0 0 14px;font-size:16px;line-height:1.66;text-align:justify;hyphens:auto;}
+.contact-links {display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:17px;font-size:14px;}
+.contact-links a,.inline-link {border-bottom:1px solid #aaa;}
+section {scroll-margin-top:30px;margin-bottom:63px;}
+h3 {font-size:21px;font-weight:500;margin:30px 0 20px;}#research>h3:first-child {margin-top:0;border-top:1px solid #d4d4d4;padding-top:31px;}
+#research>h3:not(:first-child) {border-top:1px solid #d4d4d4;padding-top:31px;margin-top:44px;}
+p {margin:0 0 14px;}.paper {margin:0 0 29px;}
+.paper-title {font-size:18px;font-weight:500;line-height:1.45;margin-bottom:3px;color:var(--navy);}
+.paper-title-link,.paper-title-link:visited,.paper-title-link:hover {color:var(--navy);}
+.paper-authors,.paper-status,.paper-publication {font-size:15px;color:var(--muted);margin-bottom:5px;}
+.paper-status {font-style:italic;} .paper-actions {display:flex;gap:10px;flex-wrap:wrap;margin:9px 0 0;align-items:center;}
+.paper-actions a,.paper-actions button {font:inherit;font-size:13px;color:#333;border:1px solid #aaa;background:#fff;padding:3px 12px;cursor:pointer;border-radius:2px;line-height:1.5;}
+.paper-actions a:hover,.paper-actions button:hover {background:#f4f4f4;border-color:#777;}
+.abstract {margin:12px 0 0;font-size:15px;line-height:1.68;text-align:justify;}.abstract p {margin:0;}.abstract[hidden] {display:none;}
+.other-version {margin:15px 0 5px;padding-left:18px;border-left:2px solid #ddd;}.other-version-label {font-size:13px;color:var(--muted);margin:0 0 5px;}
+.policy-item {margin-bottom:20px;}.policy-item strong {display:block;font-weight:500;font-size:17px;line-height:1.42;}.policy-item p {font-size:15px;margin:3px 0 0;}.policy-item a {border-bottom:1px solid #aaa;}
+footer {font-size:13px;color:#777;margin-top:65px;}
+a:focus-visible,button:focus-visible {outline:2px solid var(--navy);outline-offset:4px;}
+/* The hidden trigger remains invisible on hover; visible only to keyboard focus. */
+.art-reveal {position:fixed;top:13px;left:13px;z-index:50;width:96px;height:43px;cursor:pointer;color:transparent!important;background:transparent!important;border:0!important;font:500 13px "Helvetica Neue", "Segoe UI", Arial, sans-serif;}
+.art-reveal:hover {color:transparent!important;background:transparent!important;}
+.art-reveal:focus-visible {color:var(--navy)!important;background:#fff!important;}
+body.art-opening .shell {opacity:0;filter:blur(5px);transform:scale(.994);}
+body.art-open {overflow:hidden;}body.art-open .shell {opacity:0;pointer-events:none;}body.art-open .art-reveal {pointer-events:none;}
+/* Interactive full-window collage; the works do not leave any holes. */
+.art-viewer {position:fixed;inset:0;z-index:100;background:#fff;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .24s ease,visibility .24s;}
+.art-viewer.is-visible {opacity:1;visibility:visible;pointer-events:auto;}
+.mosaic-gallery {position:absolute;inset:0;z-index:0;}
+.mosaic-gallery .tile {cursor:zoom-in;background:#fff;}
+.mosaic-gallery .tile img {transition:transform .22s ease,filter .22s ease;}
+.mosaic-gallery .tile:hover img {transform:scale(1.025);filter:brightness(.94);}
+.art-back,.detail-back {position:absolute;z-index:3;top:16px;left:16px;padding:9px 16px;border:1px solid var(--navy);border-radius:3px;font:500 15px "Helvetica Neue", "Segoe UI", Arial, sans-serif;background:#fff;color:var(--navy);cursor:pointer;box-shadow:0 1px 8px #0001;}
+.art-back:hover,.detail-back:hover {background:var(--navy);color:#fff;}
+
+.art-detail {position:fixed;inset:0;z-index:150;background:#fff;display:none;flex-direction:column;align-items:center;justify-content:center;padding:66px 25px 66px;}
+.art-detail.is-visible {display:flex;}
+.detail-image {display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;min-height:0;}
+.detail-credit {position:absolute;bottom:12px;left:12px;right:12px;text-align:center;color:#111;font-size:13px;line-height:1.4;background:#fff;margin:0;}
+
+@media(max-width:1100px) {.shell {max-width:calc(100% - 140px);} .inner {padding-inline:55px;}}
+@media(max-width:800px) {
+ .mosaic-pale,.mosaic-soften,.mosaic-color {display:none;}
+ .shell {max-width:100%;box-shadow:none;}.inner {padding:24px 25px 68px;}
+ .topnav {justify-content:center;padding-bottom:35px;}
+ .hero {grid-template-columns:155px minmax(0,1fr);gap:23px;margin-bottom:41px;}
+ .profile-photo {width:155px;height:194px;}.hero-bio {font-size:15px;}.abstract {text-align:left;}
+ .art-reveal {top:9px;left:8px;}
+ .mosaic-gallery {grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(6,minmax(0,1fr));}
+ .mosaic-gallery .tile {grid-area:auto!important;grid-column:span 2;grid-row:span 1;}
+ 
+}
+@media(max-width:500px) {
+ .hero {grid-template-columns:1fr;gap:18px;}.profile-photo {width:175px;height:214px;}
+ .topnav {gap:24px;}.art-reveal {top:65px;}
+ .mosaic-gallery {grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(6,minmax(0,1fr));}
+ .mosaic-gallery .tile {grid-column:span 1;}
+ .detail-credit {font-size:11px;}
+}
+@media(hover:none),(pointer:coarse) {.mosaic-color {display:none;}}
+@media(prefers-reduced-motion:reduce) {.shell,.art-viewer,.mosaic-color,.mosaic-gallery .tile img {transition:none;}}
+
+/* Only the detail-view arrow switches between the owner's photograph and official reproduction. */
+.art-switch {position:absolute;z-index:5;top:50%;right:15px;transform:translateY(-50%);border:1px solid #1b3454;border-radius:50%;width:43px;height:43px;background:rgba(255,255,255,.94);color:#1b3454;font:600 26px/1 Arial, sans-serif;display:none;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 2px 15px #0002;}
+.art-switch.is-visible {display:flex;}
+.art-switch:hover {color:#fff;background:#1b3454;}
+.art-switch:focus-visible {outline:3px solid #1b3454;outline-offset:4px;}
+.art-detail {padding:64px 68px 70px;}
+@media(max-width:600px){.art-detail{padding:72px 12px 72px;}.art-switch{top:auto;bottom:73px;right:18px;transform:none;width:40px;height:40px;}.detail-credit{bottom:12px;}}
+
+.policy-item strong {color:var(--navy);}
+.hero-bio + .hero-bio {margin-top:15px;}
+</style><link href="https://jarenasmo.github.io/" rel="canonical"/><meta content="Jorge Arenas Molina" name="author"/></head><body><div aria-hidden="true" class="mosaic mosaic-pale"><div class="tile tile-saftleven" style="grid-area:1 / 1 / 3 / 3"><img alt="" src="assets/saftleven.webp"/></div>
+<div class="tile tile-botero" style="grid-area:1 / 3 / 3 / 4"><img alt="" src="assets/botero.webp"/></div>
+<div class="tile tile-greco" style="grid-area:1 / 4 / 2 / 6"><img alt="" src="assets/greco.webp"/></div>
+<div class="tile tile-hoppner" style="grid-area:1 / 6 / 3 / 7"><img alt="" src="assets/hoppner.webp"/></div>
+<div class="tile tile-dumas" style="grid-area:2 / 4 / 3 / 6"><img alt="" src="assets/dumas.webp"/></div>
+<div class="tile tile-monet" style="grid-area:3 / 1 / 5 / 3"><img alt="" src="assets/monet.webp"/></div>
+<div class="tile tile-titian" style="grid-area:3 / 3 / 4 / 5"><img alt="" src="assets/titian.webp"/></div>
+<div class="tile tile-gervex" style="grid-area:3 / 5 / 5 / 7"><img alt="" src="assets/gervex.webp"/></div>
+<div class="tile tile-bola" style="grid-area:4 / 3 / 5 / 4"><img alt="" src="assets/bola.webp"/></div>
+<div class="tile tile-canada" style="grid-area:4 / 4 / 5 / 5"><img alt="" src="assets/canada.webp"/></div>
+<div class="tile tile-somerscales" style="grid-area:5 / 1 / 6 / 4"><img alt="" src="assets/somerscales.webp"/></div>
+<div class="tile tile-matjasic" style="grid-area:5 / 4 / 6 / 7"><img alt="" src="assets/matjasic.webp"/></div></div><div aria-hidden="true" class="mosaic mosaic-soften"></div><div aria-hidden="true" class="mosaic mosaic-color" id="mosaic-color"><div class="tile tile-saftleven" style="grid-area:1 / 1 / 3 / 3"><img alt="" src="assets/saftleven.webp"/></div>
+<div class="tile tile-botero" style="grid-area:1 / 3 / 3 / 4"><img alt="" src="assets/botero.webp"/></div>
+<div class="tile tile-greco" style="grid-area:1 / 4 / 2 / 6"><img alt="" src="assets/greco.webp"/></div>
+<div class="tile tile-hoppner" style="grid-area:1 / 6 / 3 / 7"><img alt="" src="assets/hoppner.webp"/></div>
+<div class="tile tile-dumas" style="grid-area:2 / 4 / 3 / 6"><img alt="" src="assets/dumas.webp"/></div>
+<div class="tile tile-monet" style="grid-area:3 / 1 / 5 / 3"><img alt="" src="assets/monet.webp"/></div>
+<div class="tile tile-titian" style="grid-area:3 / 3 / 4 / 5"><img alt="" src="assets/titian.webp"/></div>
+<div class="tile tile-gervex" style="grid-area:3 / 5 / 5 / 7"><img alt="" src="assets/gervex.webp"/></div>
+<div class="tile tile-bola" style="grid-area:4 / 3 / 5 / 4"><img alt="" src="assets/bola.webp"/></div>
+<div class="tile tile-canada" style="grid-area:4 / 4 / 5 / 5"><img alt="" src="assets/canada.webp"/></div>
+<div class="tile tile-somerscales" style="grid-area:5 / 1 / 6 / 4"><img alt="" src="assets/somerscales.webp"/></div>
+<div class="tile tile-matjasic" style="grid-area:5 / 4 / 6 / 7"><img alt="" src="assets/matjasic.webp"/></div></div><button aria-label="View the artwork collage" class="art-reveal" id="art-reveal" title="View artwork" type="button">View artwork</button><div class="shell"><div class="inner">
+<nav aria-label="Main navigation" class="topnav"><a href="#about">About</a><a href="#research">Research</a><a href="assets/CV_2026.pdf" rel="noopener noreferrer" target="_blank">CV</a></nav>
+<header class="hero" id="about">
+<img alt="Jorge Arenas Molina" class="profile-photo" src="assets/profile.jpg"/>
+<div><h1>Jorge Arenas Molina</h1><p class="hero-bio">I am a PhD student in Economics at the University of Southern California (USC). I hold a Bachelor's degree and a Master's degree in Economics from the University of Chile.</p><p class="hero-bio">Previously, I was an Instructor Professor in the Department of Economics at the University of Chile and an Economic Advisor to the Vice President of the Central Bank of Chile.</p><div class="contact-links"><a href="mailto:jiarenas@usc.edu">jiarenas@usc.edu</a><a href="https://scholar.google.com/citations?user=c5r6jVEAAAAJ&amp;hl=en&amp;oi=ao" rel="noopener noreferrer" target="_blank">Google Scholar</a></div></div>
+</header>
+<main>
+<section id="research"><h3>Working Papers</h3>
+<article class="paper"><div class="paper-title">Matching Platforms, Market Size, and the Price of a Stable Match</div><div class="paper-actions"><button aria-controls="abstract-platform" aria-expanded="false" type="button">Abstract</button></div><div class="abstract" hidden="" id="abstract-platform"><p>Larger matching markets offer more opportunities to find suitable partners, but a platform that charges for each match may respond to these opportunities by raising its fees. We analyze how a monopoly platform sets match-contingent fees in a two-sided market where the outcome is a stable matching. In any finite market, the expected number of stable matches responds less than proportionally to mutual acceptability. In the large-market approximation this response falls as the market becomes thicker and as the long side grows, so the optimal fee rises as the market grows. We then characterize the exact revenue-maximizing fee in large markets. When match values have heavy, regularly varying tails, the platform leaves a positive fraction of the short side unmatched, regardless of how large the market becomes, and its fee grows without bound. Conversely, when values have light tails, the platform’s fee approaches the highest level the value distribution admits, and the fraction of the short side that remains unmatched tends to zero. Market growth therefore need not eliminate the exclusion induced by platform pricing.</p></div></article>
+<article class="paper"><div class="paper-title">School Composition and Improvements over Deferred Acceptance</div><p class="paper-status">Under review</p><div class="paper-actions"><a href="assets/papers/SCDA_1029.pdf" rel="noopener noreferrer" target="_blank">PDF</a><button aria-controls="abstract-school" aria-expanded="false" type="button">Abstract</button></div><div class="abstract" hidden="" id="abstract-school"><p>School choice mechanisms determine not only where students study but also who their classmates are. Deferred acceptance (DA) protects families in this regard through local non-bossiness: a student who keeps her school cannot alter its cohort by misreporting her ranking. This paper examines whether the protection persists under reforms designed to correct DA’s inefficiency, and concludes that it does not. Any mechanism that yields a Pareto improvement over DA whenever one exists fails to be locally non-bossy in every problem with a separating double rotation, a configuration of priorities and capacities that arises under random priorities in most large markets. Efficiency-adjusted deferred acceptance loses the protection once two identified students consent and, in large markets, with probability approaching one when a fixed fraction of students chosen independently of priorities consents. We also show how the consequences of this manipulation for segregation depend on how student types relate to priorities.</p></div></article>
+<article class="paper"><div class="paper-title">NDF and Exchange Rate Volatility</div><p class="paper-authors">with Stephany Griffith-Jones, Catalina Estefó, and Max Gondonneau</p><p class="paper-status">Under review</p><div class="paper-actions"><a href="assets/papers/NDF_bcch_0326.pdf" rel="noopener noreferrer" target="_blank">PDF</a><button aria-controls="abstract-ndf" aria-expanded="false" type="button">Abstract</button></div><div class="abstract" hidden="" id="abstract-ndf"><p>This paper quantifies the impact of non-resident Non-Deliverable Forward (NDF) flows on the Chilean peso using daily administrative data. Exploiting the structural break caused by the 2020–2021 pension fund withdrawals, we document a critical regime shift. We find that the retrenchment of local institutional investors eroded market depth, leading to a heightened, nonlinear sensitivity to short-term speculative flows. Post-withdrawal, these offshore positions significantly amplify depreciation and volatility. Our findings underscore the financial stability risks arising when domestic liquidity buffers are compromised, presenting key challenges for monetary policy and regulatory design.</p></div></article>
+<article class="paper"><div class="paper-title">On Incentives in Three-Sided Markets</div><p class="paper-authors">with Juan Pablo Torres-Martínez</p><div class="paper-actions"><a href="assets/papers/ATM_oninc_0424.pdf" rel="noopener noreferrer" target="_blank">PDF</a><button aria-controls="abstract-incentives" aria-expanded="false" type="button">Abstract</button></div><div class="abstract" hidden="" id="abstract-incentives"><p>In a class of three-sided matching problems that always have stable solutions, we show that no stable mechanism is strategy-proof for those who internalize the trilateral structure in their preferences. Furthermore, strong restrictions on preferences are needed to ensure that stability and one-sided strategy-proofness are compatible for all sides of the market. These results are related to the incompatibility between stability and one-sided group strategy-proofness in two-sided markets.</p></div><div class="other-version"><p class="other-version-label">Other version</p><div class="paper-title">Incentives in Three-Sided Markets</div><p class="paper-authors">with Juan Pablo Torres-Martínez</p><div class="paper-actions"><a href="assets/papers/ATM_inc_0523.pdf" rel="noopener noreferrer" target="_blank">PDF</a><button aria-controls="abstract-incentives-old" aria-expanded="false" type="button">Abstract</button></div><div class="abstract" hidden="" id="abstract-incentives-old"><p>In a class of three-sided matching problems in which the core is non-empty, we show that no stable mechanism is strategy-proof for those who internalize the trilateral structure of the market in their preferences. This impossibility is related to the incompatibility between stability, one-sided strategy-proofness, and one-sided non-bossiness in two-sided markets. Furthermore, unlike what happens in marriage markets, strong restrictions on preferences are needed to ensure that stability and one-sided strategy-proofness are compatible for each market side.</p></div></div></article>
+<h3>Publications</h3><article class="paper"><div class="paper-title">Reconsidering the Existence of Stable Solutions in Three-Sided Matching Problems with Mixed Preferences</div><p class="paper-authors">with Juan Pablo Torres-Martínez</p><p class="paper-publication">Journal of Combinatorial Optimization, 45, Article 62, 2023</p><div class="paper-actions"><a href="https://link.springer.com/article/10.1007/s10878-023-00990-2" rel="noopener noreferrer" target="_blank">Journal</a><button aria-controls="abstract-published" aria-expanded="false" type="button">Abstract</button><a href="assets/papers/ATM_jcomb_23.pdf" rel="noopener noreferrer" target="_blank">PDF</a></div><div class="abstract" hidden="" id="abstract-published"><p>We reexamine the existence of stable solutions in a class of three-sided matching problems previously studied by Zhang and Zhong (2021). The sets of participants are U, V, and W. Agents in U have strict preferences defined on V, agents in V have strict preferences defined on W, and agents in W have strict preferences defined on U × V. In this framework, we show that a weakly stable matching may not exist.</p></div></article>
+<h3>Policy Work</h3>
+<div class="policy-item"><strong>Economic Policy Responses to Chile’s Shocks, 2022 to 2025: An Insiders’ View</strong><p>with Stephany Griffith-Jones</p><p>ODI Global, April 2026 (<a href="https://odi.org/en/insights/economic-policy-responses-to-chiles-shocks-2022-to-2025-an-insiders-view/" rel="noopener noreferrer" target="_blank">Link</a>)</p></div>
+<div class="policy-item"><strong>Firm and Household Heterogeneity at the Central Bank of Chile</strong><p>with Mario Giarda and Stephany Griffith-Jones</p><p>In <em>How Can Central Banks Take Account of Differences across Households and Firms for Monetary Policy?</em>, BIS Papers No. 147, June 2025 (<a href="assets/papers/AGG_BIS_0325.pdf" rel="noopener noreferrer" target="_blank">PDF</a>)</p></div>
+<div class="policy-item"><strong>Effectiveness of Foreign Exchange Interventions: Evidence and Lessons from Chile</strong><p>with Stephany Griffith-Jones</p><p>Central Bank of Chile Working Papers N983, October 2024 (<a href="assets/papers/JAMSGJ_FXI_1024.pdf" rel="noopener noreferrer" target="_blank">PDF</a>)</p></div>
+<div class="policy-item"><strong>Green Hydrogen in Chile: Outlook on Demand and Investment (in Spanish)</strong><p>with S. Baudocco, G. Contreras, J. Guerra, and S. Griffith-Jones</p><p>Central Bank of Chile Blogs, September 2024 (<a href="https://www.bcentral.cl/en/w/hidrogeno-verde-chile" rel="noopener noreferrer" target="_blank">Link</a>)</p></div>
+<div class="policy-item"><strong>Exchange Rate Pass-Through to Prices in Chile: An Empirical and Structural Analysis</strong><p>with P. Concha, M. García, E. Luttini, and J. E. Rishmawi</p><p>Monetary Policy Report, Central Bank of Chile, March 2023 (<a href="https://www.bcentral.cl/documents/33528/4103593/Box_I.4.pdf/d1f3ab53-ab87-162f-b566-d97fd3290802?t=1681723342790" rel="noopener noreferrer" target="_blank">Link</a>)</p></div>
+</section>
+</main>
+</div></div><div aria-hidden="true" aria-label="Artwork gallery" aria-modal="true" class="art-viewer" id="art-viewer" role="dialog"><div class="mosaic mosaic-gallery"><button aria-label="View College of Animals" class="tile tile-saftleven" data-art="saftleven" style="grid-area:1 / 1 / 3 / 3" type="button"><img alt="" loading="lazy" src="assets/saftleven-personal.webp"/></button>
+<button aria-label="View Caballo" class="tile tile-botero" data-art="botero" style="grid-area:1 / 3 / 3 / 4" type="button"><img alt="" loading="lazy" src="assets/botero-personal.webp"/></button>
+<button aria-label="View Christ Driving the Traders from the Temple" class="tile tile-greco" data-art="greco" style="grid-area:1 / 4 / 2 / 6" type="button"><img alt="" loading="lazy" src="assets/greco-personal.webp"/></button>
+<button aria-label="View Richard Humphreys, the Boxer" class="tile tile-hoppner" data-art="hoppner" style="grid-area:1 / 6 / 3 / 7" type="button"><img alt="" loading="lazy" src="assets/hoppner-personal.webp"/></button>
+<button aria-label="View Death of Socrates" class="tile tile-dumas" data-art="dumas" style="grid-area:2 / 4 / 3 / 6" type="button"><img alt="" loading="lazy" src="assets/dumas-personal.webp"/></button>
+<button aria-label="View The Luncheon" class="tile tile-monet" data-art="monet" style="grid-area:3 / 1 / 5 / 3" type="button"><img alt="" loading="lazy" src="assets/monet-personal.webp"/></button>
+<button aria-label="View The Tribute Money" class="tile tile-titian" data-art="titian" style="grid-area:3 / 3 / 4 / 5" type="button"><img alt="" loading="lazy" src="assets/titian-personal.webp"/></button>
+<button aria-label="View A Session of the Painting Jury" class="tile tile-gervex" data-art="gervex" style="grid-area:3 / 5 / 5 / 7" type="button"><img alt="" loading="lazy" src="assets/gervex-personal.webp"/></button>
+<button aria-label="View Juego de bola" class="tile tile-bola" data-art="bola" style="grid-area:4 / 3 / 5 / 4" type="button"><img alt="" loading="lazy" src="assets/bola.webp"/></button>
+<button aria-label="View Paseo de la Cañada" class="tile tile-canada" data-art="canada" style="grid-area:4 / 4 / 5 / 5" type="button"><img alt="" loading="lazy" src="assets/canada.webp"/></button>
+<button aria-label="View Combate naval de Angamos" class="tile tile-somerscales" data-art="somerscales" style="grid-area:5 / 1 / 6 / 4" type="button"><img alt="" loading="lazy" src="assets/somerscales.webp"/></button>
+<button aria-label="View Cosecha" class="tile tile-matjasic" data-art="matjasic" style="grid-area:5 / 4 / 6 / 7" type="button"><img alt="" loading="lazy" src="assets/matjasic.webp"/></button></div><button class="art-back" id="art-back" type="button">← Back</button></div><div aria-hidden="true" aria-label="Individual artwork" aria-modal="true" class="art-detail" id="art-detail" role="dialog"><button class="detail-back" id="detail-back" type="button">← Back to collage</button><button aria-label="Show official image" class="art-switch" id="art-switch" title="Show official image" type="button">›</button><img alt="" class="detail-image" id="detail-image" src=""/><p class="detail-credit" id="detail-credit"></p></div><script>(() => {
+ const data = {"saftleven": {"official": "assets/saftleven.png", "personal": "assets/saftleven-personal.jpeg", "credit": "Saftleven, Cornelis. <em>College of Animals</em>. 1655, Dallas Museum of Art, Dallas.", "name": "College of Animals"}, "botero": {"official": "assets/botero.jpg", "personal": "assets/botero-personal.jpg", "credit": "Botero, Fernando. <em>Caballo</em>. 1998, Museo Botero, Bogotá.", "name": "Caballo"}, "greco": {"official": "assets/greco.jpg", "personal": "assets/greco-personal.jpeg", "credit": "El Greco (Doménikos Theotokópoulos). <em>Christ Driving the Traders from the Temple</em>. c. 1600, The National Gallery, London.", "name": "Christ Driving the Traders from the Temple"}, "hoppner": {"official": "assets/hoppner.jpg", "personal": "assets/hoppner-personal.jpeg", "credit": "Hoppner, John. <em>Richard Humphreys, the Boxer</em>. c. 1788, The Metropolitan Museum of Art, New York.", "name": "Richard Humphreys, the Boxer"}, "dumas": {"official": "assets/dumas.png", "personal": "assets/dumas-personal.jpeg", "credit": "Dumas, Marlene. <em>Death of Socrates</em>. 1992, The Museum of Contemporary Art, Los Angeles.", "name": "Death of Socrates"}, "monet": {"official": "assets/monet.jpg", "personal": "assets/monet-personal.jpeg", "credit": "Monet, Claude. <em>The Luncheon</em>. c. 1873, Musée d’Orsay, Paris.", "name": "The Luncheon"}, "titian": {"official": "assets/titian.jpg", "personal": "assets/titian-personal.jpeg", "credit": "Titian (Tiziano Vecellio). <em>The Tribute Money</em>. c. 1560–68, The National Gallery, London.", "name": "The Tribute Money"}, "gervex": {"official": "assets/gervex.jpg", "personal": "assets/gervex-personal.jpeg", "credit": "Gervex, Henri. <em>A Session of the Painting Jury</em> [<em>Une séance du jury de peinture</em>]. 1885, Musée d’Orsay, Paris.", "name": "A Session of the Painting Jury"}, "bola": {"official": "assets/bola.png", "personal": null, "credit": "Gay, Claudio. “Juego de bola.” <em>Atlas de la historia física y política de Chile</em>, vol. 1, Imprenta de E. Thunot, 1854.", "name": "Juego de bola"}, "canada": {"official": "assets/canada.png", "personal": null, "credit": "Gay, Claudio. “Paseo de la Cañada.” <em>Atlas de la historia física y política de Chile</em>, vol. 1, Imprenta de E. Thunot, 1854.", "name": "Paseo de la Cañada"}, "somerscales": {"official": "assets/somerscales.jpeg", "personal": null, "credit": "Somerscales, Thomas. <em>Combate naval de Angamos</em>. 1879, Colección del Banco Central de Chile, Santiago.", "name": "Combate naval de Angamos"}, "matjasic": {"official": "assets/matjasic.jpeg", "personal": null, "credit": "Matjašić, Roko. <em>Cosecha</em>. n.d., Colección de Pinturas del Banco Central de Chile, Santiago.", "name": "Cosecha"}};
+ const reveal=document.getElementById('art-reveal');
+ const viewer=document.getElementById('art-viewer');
+ const back=document.getElementById('art-back');
+ const detail=document.getElementById('art-detail');
+ const detailBack=document.getElementById('detail-back');
+ const detailImg=document.getElementById('detail-image');
+ const detailCredit=document.getElementById('detail-credit');
+ const switchBtn=document.getElementById('art-switch');
+ const color=document.getElementById('mosaic-color');
+ const shell=document.querySelector('.shell');
+ let previousFocus=null, timer=null, raf=0, px=-600,py=-600;
+ let selectedArt=null, showingOfficial=false;
+ document.querySelectorAll('.paper-actions button[aria-controls]').forEach(button=>button.addEventListener('click',()=>{
+  const panel=document.getElementById(button.getAttribute('aria-controls'));
+  panel.hidden=!panel.hidden;
+  button.setAttribute('aria-expanded',String(!panel.hidden));
+ }));
+ function openArt(){
+  previousFocus=document.activeElement;
+  color.classList.remove('active');
+  document.body.classList.add('art-opening');
+  clearTimeout(timer);
+  timer=setTimeout(()=>{
+   document.body.classList.add('art-open');
+   viewer.classList.add('is-visible');
+   viewer.setAttribute('aria-hidden','false');
+   back.focus();
+  },175);
+ }
+ function closeArt(){
+  clearTimeout(timer);
+  closeDetail(false);
+  viewer.classList.remove('is-visible');
+  viewer.setAttribute('aria-hidden','true');
+  document.body.classList.remove('art-open','art-opening');
+  (previousFocus||reveal).focus();
+ }
+ function updateArtwork(){
+  const work=data[selectedArt];if(!work)return;
+  detailImg.src=showingOfficial||!work.personal?work.official:work.personal;
+  detailImg.alt=work.name+(showingOfficial?' — official image':' — museum photograph');
+  detailCredit.innerHTML=work.credit;
+  switchBtn.classList.toggle('is-visible',Boolean(work.personal));
+  switchBtn.textContent=showingOfficial?'‹':'›';
+  switchBtn.setAttribute('aria-label',showingOfficial?'Show personal photograph':'Show official image');
+  switchBtn.title=showingOfficial?'Show museum photograph':'Show official image';
+ }
+ function openDetail(key){
+  if(!data[key])return;
+  selectedArt=key;showingOfficial=false;
+  updateArtwork();
+  detail.classList.add('is-visible');
+  detail.setAttribute('aria-hidden','false');
+  detailBack.focus();
+ }
+ function closeDetail(focus=true){
+  detail.classList.remove('is-visible');detail.setAttribute('aria-hidden','true');
+  selectedArt=null;showingOfficial=false;
+  if(focus)back.focus();
+ }
+ switchBtn.addEventListener('click',()=>{
+  if(!selectedArt||!data[selectedArt].personal)return;
+  showingOfficial=!showingOfficial;
+  updateArtwork();
+ });
+ reveal.addEventListener('click',openArt);
+ back.addEventListener('click',closeArt);
+ detailBack.addEventListener('click',()=>closeDetail());
+ viewer.querySelectorAll('[data-art]').forEach(tile=>tile.addEventListener('click',()=>openDetail(tile.dataset.art)));
+ document.addEventListener('keydown',event=>{
+  if(event.key==='Escape'){
+   if(detail.classList.contains('is-visible')) closeDetail();
+   else if(viewer.classList.contains('is-visible')||document.body.classList.contains('art-opening'))closeArt();
+  }
+ });
+ const fine=window.matchMedia('(hover: hover) and (pointer: fine)');
+ document.addEventListener('pointermove',event=>{
+  if(!fine.matches||innerWidth<=800||document.body.classList.contains('art-open')||document.body.classList.contains('art-opening')){
+   color.classList.remove('active');return;
+  }
+  const rect=shell.getBoundingClientRect();
+  if(event.clientX>=rect.left && event.clientX<=rect.right){color.classList.remove('active');return;}
+  px=event.clientX;py=event.clientY;
+  color.classList.add('active');
+  if(!raf)raf=requestAnimationFrame(()=>{
+   color.style.setProperty('--spot-x',px+'px');
+   color.style.setProperty('--spot-y',py+'px');
+   raf=0;
+  });
+ },{passive:true});
+ document.addEventListener('pointerleave',()=>color.classList.remove('active'));
+ window.addEventListener('blur',()=>color.classList.remove('active'));
+})();</script></body></html>
